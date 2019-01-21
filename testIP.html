@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="utf-8">
+<h4>IP代理测试脚本，请勿关闭本页面！！！</h4>
+</head>
+</html>
+<iframe src="" width="1300" height="800" style= "display   :none "></iframe> 
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script type="text/javascript">
+	var urls=new Array("https://blog.csdn.net/SIMPLE1995/article/details/86219230",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86234891",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86286829",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86286958",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86488374",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86514704",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86515108",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86519273",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86519865",
+						"https://blog.csdn.net/SIMPLE1995/article/details/79196047",
+						"https://blog.csdn.net/SIMPLE1995/article/details/79195912",
+						"https://blog.csdn.net/SIMPLE1995/article/details/56837147",
+						"https://blog.csdn.net/SIMPLE1995/article/details/56497227",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86552172",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86552366",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86552474",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86571231");
+	var i=0;
+	setInterval(function(){ 
+
+		console.log("cookie:"+document.cookie);
+		if(i<urls.length){
+			$('iframe').attr('src',urls[i++]);
+			//console.log("刷屏"); $('iframe').attr('src', $('iframe').attr('src'));
+			//console.log(" ");
+			console.log( i+"  :   "+$('iframe').attr('src') );
+		}else{
+			i=0;
+		}
+
+		
+		
+	},15000)
+	//10000
+</script>

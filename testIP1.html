@@ -4,10 +4,10 @@
 <h4>IP代理测试脚本，请勿关闭本页面！！！</h4>
 </head>
 </html>
-<iframe src="" width="1300" height="800" id="myframe"></iframe> 
+<iframe src="" width="1300" height="800" ></iframe> 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
-	var urls=new Array("https://blog.csdn.net/SIMPLE1995/article/details/86571231",
-						"https://blog.csdn.net/SIMPLE1995/article/details/86219230",
+	var urls=new Array("https://blog.csdn.net/SIMPLE1995/article/details/86219230",
 						"https://blog.csdn.net/SIMPLE1995/article/details/86234891",
 						"https://blog.csdn.net/SIMPLE1995/article/details/86286829",
 						"https://blog.csdn.net/SIMPLE1995/article/details/86286958",
@@ -22,15 +22,17 @@
 						"https://blog.csdn.net/SIMPLE1995/article/details/56497227",
 						"https://blog.csdn.net/SIMPLE1995/article/details/86552172",
 						"https://blog.csdn.net/SIMPLE1995/article/details/86552366",
-						"https://blog.csdn.net/SIMPLE1995/article/details/86552474");
+						"https://blog.csdn.net/SIMPLE1995/article/details/86552474",
+						"https://blog.csdn.net/SIMPLE1995/article/details/86571231");
 	var i=0;
 	setInterval(function(){ 
 
+		console.log("cookie:"+document.cookie);
 		if(i<urls.length){
-			
-			document.getElementById("myframe").src=urls[i++]; 
-			
-			console.log( i+"  :   "+document.getElementById("myframe").src);
+			$('iframe').attr('src',urls[i++]);
+			//console.log("刷屏"); $('iframe').attr('src', $('iframe').attr('src'));
+			//console.log(" ");
+			console.log( i+"  :   "+$('iframe').attr('src') );
 		}else{
 			i=0;
 		}

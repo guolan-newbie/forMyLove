@@ -36,16 +36,53 @@
 		"https://blog.csdn.net/SIMPLE1995/article/details/86552172",
 		"https://blog.csdn.net/SIMPLE1995/article/details/86552366",
 		"https://blog.csdn.net/SIMPLE1995/article/details/86552474");
-
-	var i=0;
 	
-	setInterval(function(){ 
-		if(i<urls.length){	
-			document.getElementById("myframe").src=urls[i++]; 
-			console.log( i+"  :   "+document.getElementById("myframe").src);
-		}else{
-			i=0;
-		}		
-	},5000);
-	//1000=1秒
+/*旧版本代码 导致运行时间过长时，产生占用cpu过高
+var i = 0;	
+setInterval(function(){ 
+if(i<urls.length){	
+	document.getElementById("myframe").src=urls[i++]; 
+	//console.log( i+"  :   "+document.getElementById("myframe").src);
+}else{
+	i=0;
+}		
+},5000);
+*/
+
+/**
+* 不停的每隔5秒钟调用一下自己。在一般的运用中，用户访问含有这样代码的页是没感觉出它*有什么问题。但是如果用户在这样的页里需要停留的时间很长，就会用问题。因为setTimeout*会不停的“吐食”CPU，慢慢的CPU最终会被这样的代码吃光，造成IE死掉，或停止执行。
+* 解决的办法，在下次调用之前先用clearTimeout清除一下
+*/
+	
+var i = 0;
+var TimeCounter="";	
+function PollConn(){
+	var el = document.getElementById('myframe'),
+                    iframe = el.contentWindow;
+                if (el) {
+                    el.src = 'about:blank';
+                    try {
+                        iframe.document.write('');//清空iframe的内容
+                        iframe.document.clear();
+						iframe.close();//避免iframe内存泄漏
+                    } catch (e) { };
+                    //以上可以清除大部分的内存和文档节点记录数了 
+                }
+
+	if(TimeCounter!=null && TimeCounter!="") {		
+		clearTimeout(TimeCounter);  //清除settimeout函数产生的內存消耗.
+	}
+	
+	if(i<urls.length){
+		//"?timestamp=" + new Date().getTime();  url加时间戳 清楚缓存
+		var frameElement=document.getElementById("myframe");	
+		frameElement.src=urls[i++]+"?timestamp=" + new Date().getTime();
+		//console.log(frameElement.src);
+	}else{
+		i=0;
+	}
+	//递归 保证循环执行
+	TimeCounter=window.setTimeout('PollConn();',5000); 
+} 
+PollConn();
 </script>

@@ -1,12 +1,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<h4>IP代理测试脚本，请勿关闭本页面！！隐藏</h4>
+<h4>测试脚本，请勿关闭本页面！！隐藏</h4>
 </head>
 </html>
 <iframe src="" width="1300" height="800" id="myframe" style="display: none;"></iframe> 
 <script type="text/javascript">
 	var urls=new Array(
+		"https://blog.csdn.net/SIMPLE1995/article/details/89508449",
 		"https://blog.csdn.net/SIMPLE1995/article/details/89487029",
 		"https://blog.csdn.net/SIMPLE1995/article/details/89486573",
 		"https://blog.csdn.net/SIMPLE1995/article/details/89446038",
@@ -37,18 +38,12 @@
 		"https://blog.csdn.net/SIMPLE1995/article/details/86552474");
 	var i=0;
 	setInterval(function(){ 
-
-		if(i<urls.length){
-			
+		if(i<urls.length){	
 			document.getElementById("myframe").src=urls[i++]; 
-			
 			console.log( i+"  :   "+document.getElementById("myframe").src);
 		}else{
 			i=0;
-		}
-
-		
-		
+		}		
 	},5000);
-	//10000 =10秒
+	//1000=1秒
 </script>

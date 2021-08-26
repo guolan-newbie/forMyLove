@@ -5,7 +5,7 @@ html{
 /*最外层容器样式*/
 .wrap{
 	width: 650px;
-	height: 200px;
+	height: 300px;
 	/*改变左右上下,图片方块移动*/
 	margin: 150px 360px;
 	position: relative;
@@ -18,7 +18,7 @@ html{
 /*包裹所有容器样式*/
 .cube{
 	width: 200px;
-	height: 200px;
+	height: 300px;
 	margin: 0 auto;
 	transform-style: preserve-3d;
 	transform: rotateX(-30deg) rotateY(-80deg);
@@ -29,7 +29,7 @@ html{
 .cube div{
 	position: absolute;
 	width: 200px;
-	height: 200px;
+	height: 300px;
 	opacity: 0.8;
 	transition: all .4s;
 }

@@ -1,19 +1,21 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <h4>测试脚本，请勿关闭本页面！！隐藏</h4>
 </head>
 </html>
 <!-- <iframe src="" width="1300" height="800" id="myframe" style="display: none;"></iframe> -->
 <iframe src="" width="1300" height="800" id="myframe"></iframe> 
 <script type="text/javascript">
+
 	var urls=new Array(
-		'http://www.ecice06.com/CN/10.19678/j.issn.1000-3428.0063294',
+		'https://www.ecice06.com/CN/10.19678/j.issn.1000-3428.0063294',
 		'https://www.hindawi.com/journals/cin/2022/1204909/',
 		'https://www.researchgate.net/journal/Computational-Intelligence-and-Neuroscience-1687-5273/publication/360499888_Research_on_Video_Captioning_Based_on_Multifeature_Fusion/links/627e2b683a23744a727cc799/Research-on-Video-Captioning-Based-on-Multifeature-Fusion.pdf',
 		'https://www.researchgate.net/publication/360499888_Research_on_Video_Captioning_Based_on_Multifeature_Fusion',
-		'http://www.ecice06.com/article/2022/1000-3428/221045.htm',
-		'http://www.ecice06.com/CN/10.19678/j.issn.1000-3428.0063294#',
+		'https://www.ecice06.com/article/2022/1000-3428/221045.htm',
+		'https://www.ecice06.com/CN/10.19678/j.issn.1000-3428.0063294#',
 		'https://www.researchgate.net/profile/Lan-Guo-8/research',
 		"https://guolan.blog.csdn.net/article/details/120134139",
 		"https://blog.csdn.net/SIMPLE1995/article/details/103252036",
@@ -94,16 +96,16 @@ var i = 0;
 var TimeCounter="";	
 function PollConn(){
 	var el = document.getElementById('myframe'),
-                    iframe = el.contentWindow;
-                if (el) {
-                    el.src = 'about:blank';
-                    try {
-                        iframe.document.write('');//清空iframe的内容
-                        iframe.document.clear();
-						iframe.close();//避免iframe内存泄漏
-                    } catch (e) { };
-                    //以上可以清除大部分的内存和文档节点记录数了 
-                }
+	iframe = el.contentWindow;
+	if (el) {
+		el.src = 'about:blank';
+		try {
+			iframe.document.write('');//清空iframe的内容
+			iframe.document.clear();
+			iframe.close();//避免iframe内存泄漏
+		} catch (e) { };
+		//以上可以清除大部分的内存和文档节点记录数了
+	}
 
 	if(TimeCounter!=null && TimeCounter!="") {		
 		clearTimeout(TimeCounter);  //清除settimeout函数产生的內存消耗.
@@ -111,8 +113,13 @@ function PollConn(){
 	
 	if(i<urls.length){
 		//"?timestamp=" + new Date().getTime();  url加时间戳 清楚缓存
+		
+
 		var frameElement=document.getElementById("myframe");	
 		frameElement.src=urls[i++]+"?timestamp=" + new Date().getTime();
+
+		
+
 		//console.log(frameElement.src);
 	}else{
 		i=0;
